@@ -19,7 +19,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {forgetPassword} from '../../Redux/authSlice2'
 import {useParams } from 'react-router-dom';
 
-//1
+
 import {
   CssVarsProvider,
   useColorScheme,
@@ -29,23 +29,22 @@ import Divider from '@mui/joy/Divider';
 
 import FormLabel, { formLabelClasses } from '@mui/joy/FormLabel';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
-// import Link from '@mui/joy/Link';
-// import Input from '@mui/joy/Input';
+
 
 import Stack from '@mui/joy/Stack';
-// import Stack from '@mui/system/Stack';
+
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
 
-// import CssBaseline from '@mui/material/CssBaseline';
+
 import { styled } from '@mui/system';
-// import Box from '@mui/material/Box';
+
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-//---------------------------
 
 
-//2
+
+
 const Item = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#262B32' : '#fff',
   padding: theme.spacing(1),
@@ -53,25 +52,25 @@ const Item = styled('div')(({ theme }) => ({
   borderRadius: 4,
 }));
 
-//---------------------------
+
 
 
 const textFieldStyles={
   
   '& .MuiOutlinedInput-root': {
-    borderRadius: '10px', // Adjust the radius as needed
-    backgroundColor: 'rgba(255, 255, 255, 0.8)', // White background with 80% opacity
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Adds a light shadow
+    borderRadius: '10px', 
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
     '& fieldset': {
-      borderRadius: '10px', // Adjust the radius as needed
-      borderColor: '#fff', // Sets the border color
-      borderWidth: '1px', // Sets the border width
+      borderRadius: '10px',
+      borderColor: '#fff', 
+      borderWidth: '1px', 
     },
     '&:hover fieldset': {
-      borderColor: '#555', // Change border color on hover
+      borderColor: '#555', 
     },
     '&.Mui-focused fieldset': {
-      borderColor: '#555', // Change border color when focused
+      borderColor: '#555', 
     },
   },
   }
@@ -192,13 +191,13 @@ const [isPrivacyPolicyChecked, setIsPrivacyPolicyChecked] = useState(true);
       );
     }
 
-//---------------------------
+
 
 
 
 
   return (
-    //4
+    
     <>
     <CssVarsProvider  defaultMode="light" disableTransitionOnChange>
     <CssBaseline />
@@ -232,12 +231,11 @@ const [isPrivacyPolicyChecked, setIsPrivacyPolicyChecked] = useState(true);
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
 
-        {/* //--------------------------- */}
+        
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs" sx= {{
           
-          // backgroundColor:"#F6F5F5",
-          // backgroundSize: 'cover',
+          
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           
@@ -246,8 +244,8 @@ const [isPrivacyPolicyChecked, setIsPrivacyPolicyChecked] = useState(true);
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             Height: '800px',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Add shadow
-      borderRadius: '10px', // Optional: rounded corners
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', 
+      borderRadius: '10px',
       position: 'relative',
             
          
@@ -355,17 +353,8 @@ const [isPrivacyPolicyChecked, setIsPrivacyPolicyChecked] = useState(true);
 <Box
   sx={{
     position: 'flex',
-    // right: 0,
-    // top: 0,
-    // bottom: 20,
-    // left: 'clamp(0px, (100vw - var(--Collapsed-breakpoint)) * 999, 100vw - var(--Cover-width))',
-    // zIndex: -1,
-    // transition: 'background-image var(--Transition-duration), left var(--Transition-duration) !important',
-    // transitionDelay: 'calc(var(--Transition-duration) + 0.1s)',
-    // backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    // '&.dark': {
-    //   backgroundColor: 'rgba(19, 19, 24, 0.4)',
-    // },
+    
+   
     marginTop:'70px',
     backgroundSize: 'contain',
     backgroundPosition: 'center',
@@ -394,6 +383,6 @@ const [isPrivacyPolicyChecked, setIsPrivacyPolicyChecked] = useState(true);
 
    
     </>
-     //---------------------------
+    
   );
 }

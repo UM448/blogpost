@@ -3,7 +3,7 @@ import axiosInstance2,{axiosInstance} from "./helper";
 import axios from 'axios'
 
 
-import { toast } from "react-toastify";  // toast and its associated styles for displaying notifications.
+import { toast } from "react-toastify";  
 import "react-toastify/dist/ReactToastify.css";
 
 const initialState = {
@@ -14,13 +14,13 @@ const initialState = {
 };
 
 
-// Action ...................
-export const register = createAsyncThunk(  // Creates an asynchronous thunk action named register using createAsyncThunk. It sends a POST request to the "/user/signup" endpoint with the provided formData and returns the response data (resData).
+
+export const register = createAsyncThunk(  
   "/user/signup",
 
   async (formData) => {
     try{
-    let res = await axiosInstance2.post(`/user/signup`, formData); // axiosInstance for making HTTP requests.
+    let res = await axiosInstance2.post(`/user/signup`, formData); 
     console.log("Response Data",res)
     let resData = res?.data;
 
@@ -33,12 +33,12 @@ export const register = createAsyncThunk(  // Creates an asynchronous thunk acti
 );
 
 
-export const register2 = createAsyncThunk(  // Creates an asynchronous thunk action named register using createAsyncThunk. It sends a POST request to the "/user/signup" endpoint with the provided formData and returns the response data (resData).
+export const register2 = createAsyncThunk( 
   "/register-userDashboard",
 
   async (formData) => {
     try{
-    let res = await axiosInstance.post(`/register`, formData); // axiosInstance for making HTTP requests.
+    let res = await axiosInstance.post(`/register`, formData); 
     console.log("Response Data",res)
     let resData = res?.data;
 
@@ -51,12 +51,12 @@ export const register2 = createAsyncThunk(  // Creates an asynchronous thunk act
 );
 
 
-export const login = createAsyncThunk(  // Creates an asynchronous thunk action named register using createAsyncThunk. It sends a POST request to the "/user/signup" endpoint with the provided formData and returns the response data (resData).
+export const login = createAsyncThunk(  
   "/user/signin",
 
   async (formData) => {
     try{
-    let res = await axiosInstance2.post(`/user/signin`, formData); // axiosInstance for making HTTP requests.
+    let res = await axiosInstance2.post(`/user/signin`, formData); 
     
     console.log("Response Data",res)
     let resData = res?.data;
@@ -69,12 +69,12 @@ export const login = createAsyncThunk(  // Creates an asynchronous thunk action 
   }
 );
 
-export const login2 = createAsyncThunk(  // Creates an asynchronous thunk action named register using createAsyncThunk. It sends a POST request to the "/user/signup" endpoint with the provided formData and returns the response data (resData).
+export const login2 = createAsyncThunk(  
   "/user_login",
 
   async (formData) => {
     try{
-    let res = await axiosInstance.post(`/login`, formData); // axiosInstance for making HTTP requests.
+    let res = await axiosInstance.post(`/login`, formData); 
     
     console.log("Response Data",res)
     let resData = res?.data;
@@ -87,39 +87,32 @@ export const login2 = createAsyncThunk(  // Creates an asynchronous thunk action
   }
 );
 
-// Slice create
+
 export const AuthSlice = createSlice({
   name: "Authentication",
   initialState,
-  // create action function()
+  
   reducers: {
 
     Token_remove: (state, { payload }) => {
       localStorage.removeItem("token");
       localStorage.removeItem("token2");
-      // localStorage.clear();
+      
       state.isToggle=false;
     },
 
-    // Check_Token: (state, { payload }) => {
-    //   let token= localStorage.getItem("token");
-    //   if(token!==null){
-     
-    //     state.isToggle = true;
-    //   }
     
-    // },
     reset_redirectTo: (state, { payload }) => {
-      // console.log("From Payload",payload)
+      
       state.redirectTo = payload;
     },
     userLogin: (state, { payload }) => {
-      // console.log("from userLogin",state.isUserLogin)
+     
       state.isUserLogin = true
       state.isBlogLogin = false
     },
     blogLogin: (state, { payload }) => {
-      // console.log("from blogLogin",state.isBlogLogin)
+      
 
       state.isUserLogin = false
       state.isBlogLogin = true
@@ -132,7 +125,7 @@ export const AuthSlice = createSlice({
 
   
 
-  // Promise 
+   
   extraReducers: (builder) => {
     builder
 
@@ -141,8 +134,7 @@ export const AuthSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, { payload }) => {
         state.status = "idle";
-        // localStorage.setItem("email",payload.data.email)
-        //   localStorage.setItem("first_school",payload.data.first_school)
+        
           toast(payload.message);
 
       })
@@ -155,8 +147,7 @@ export const AuthSlice = createSlice({
       })
       .addCase(register2.fulfilled, (state, { payload }) => {
         state.status = "idle";
-        // localStorage.setItem("email",payload.data.email)
-        //   localStorage.setItem("first_school",payload.data.first_school)
+       
           toast(payload.message);
 
       })
@@ -177,15 +168,12 @@ export const AuthSlice = createSlice({
           
           
           state.isToggle=true
-          // state.isToggle=true
+          
           localStorage.setItem("isToggle",JSON.stringify(state.isToggle))
           state.redirectTo = '/productlist'
       
         } 
-        // else {
-          
-        //   toast(payload);
-        // }
+        
         toast(payload.message);
 
       })
@@ -207,15 +195,12 @@ export const AuthSlice = createSlice({
           
           
           state.isToggle=true
-          // state.isToggle=true
+          
           localStorage.setItem("isToggle2",JSON.stringify(state.isToggle))
           state.redirectTo = '/user'
       
         } 
-        // else {
-          
-        //   toast(payload);
-        // }
+        
         toast(payload);
 
       })

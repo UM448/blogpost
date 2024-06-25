@@ -6,7 +6,7 @@ import { reset_redirectTo,user } from '../../Redux/authSlice2';
 import { Button, Container, TextField, Typography } from '@mui/material';
 import { Grid, Card, CardContent,Avatar,Alert } from '@mui/material';
 
-//1
+
 import {
   CssVarsProvider,
   useColorScheme,
@@ -16,11 +16,11 @@ import Divider from '@mui/joy/Divider';
 
 import FormLabel, { formLabelClasses } from '@mui/joy/FormLabel';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
-// import Link from '@mui/joy/Link';
+
 import Input from '@mui/joy/Input';
 
 import Stack from '@mui/joy/Stack';
-// import Stack from '@mui/system/Stack';
+
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
@@ -29,10 +29,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { styled } from '@mui/system';
 import Box from '@mui/material/Box';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-//---------------------------
 
-
-//2
 const Item = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#262B32' : '#fff',
   padding: theme.spacing(1),
@@ -40,7 +37,7 @@ const Item = styled('div')(({ theme }) => ({
   borderRadius: 4,
 }));
 
-//---------------------------
+
 
 
 
@@ -65,7 +62,7 @@ export default function UserDasboard() {
 
 
 
-//3
+
 const [isPrivacyPolicyChecked, setIsPrivacyPolicyChecked] = useState(true);
 
   const handlePrivacyPolicyChange = (event) => {
@@ -104,7 +101,7 @@ const [isPrivacyPolicyChecked, setIsPrivacyPolicyChecked] = useState(true);
       );
     }
 
-//---------------------------
+
 
 
 
@@ -131,7 +128,7 @@ const updateButtonStyle = {
   
 
   return (
-     //4
+     
      <>
      <CssVarsProvider  defaultMode="light" disableTransitionOnChange>
      <CssBaseline />
@@ -151,7 +148,7 @@ const updateButtonStyle = {
                                         
                                        <Typography level="title-lg">User Dashboard</Typography>
                                    </Box>
-                                   {/* <ColorSchemeToggle /> */}
+                                   
                                </Box>
 
                                </CssVarsProvider>                
@@ -165,7 +162,7 @@ const updateButtonStyle = {
          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
          <Grid item xs={6}>
 
-         {/* //--------------------------- */}
+         
 
 
          <div className='container' style={{ marginTop: "5.5rem", marginBottom:"5.5rem" }}>
@@ -181,8 +178,8 @@ const updateButtonStyle = {
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               Height: '800px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Add shadow
-        borderRadius: '10px', // Optional: rounded corners
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', 
+        borderRadius: '10px', 
         position: 'relative',
               
             }}>
@@ -190,7 +187,7 @@ const updateButtonStyle = {
      
     ><Alert severity="error" sx={{ m: 2 , justifyContent: 'center',
     alignItems: 'center',
-    height: '35vh', // Adjust as needed
+    height: '35vh', 
     textAlign: 'center',}}>
       <Typography variant="body1" sx={{ fontStyle: 'italic', fontWeight: 'bold' }}>
         No Data Found
@@ -217,13 +214,7 @@ const updateButtonStyle = {
               First School: {det.first_school}
             </Typography>
             
-            {/* <Avatar alt="profile pic" src={det.image} >
-              
-            </Avatar>
-
-            <Typography >
-             <img src={det.image}/>
-            </Typography> */}
+            
             <Typography sx={{marginBottom:"10px"}}>
             <Button
                         component={Link}
@@ -272,24 +263,14 @@ const updateButtonStyle = {
 <Box
   sx={{
     position: 'flex',
-    // right: 0,
-    // top: 0,
-    // bottom: 20,
-    // left: 'clamp(0px, (100vw - var(--Collapsed-breakpoint)) * 999, 100vw - var(--Cover-width))',
-    // zIndex: -1,
-    // transition: 'background-image var(--Transition-duration), left var(--Transition-duration) !important',
-    // transitionDelay: 'calc(var(--Transition-duration) + 0.1s)',
-    // backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    // '&.dark': {
-    //   backgroundColor: 'rgba(19, 19, 24, 0.4)',
-    // },
+    
     marginTop:'30px',
     backgroundSize: 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     height: '450px',
     width: '550px',
-    // top: '120%',
+    
     left: '110%',
     backgroundImage: 'url(/2481550.jpg)',
      
@@ -311,6 +292,6 @@ const updateButtonStyle = {
 
    
     </>
-     //--------------------------- 
+     
   );
 }

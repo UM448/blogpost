@@ -14,7 +14,7 @@ const initialState = {
 
 
 
-// export const register = createAsyncThunk( "/register",
+
 
 //   async (formData) => {
 //     try{
@@ -63,13 +63,13 @@ export const user = createAsyncThunk(
    
     return resData;
     }catch(error){
-    //  console.log("Error",error)
+    
       return error
     }
   }
 );
 
-//updatePassword
+
 
 export const updatePassword = createAsyncThunk(  
   "/update-password",
@@ -89,7 +89,7 @@ export const updatePassword = createAsyncThunk(
   }
 );
 
-//forget-password
+
 
 export const forgetPassword = createAsyncThunk(  
   "/forget-password",
@@ -116,7 +116,7 @@ export const AuthSlice2 = createSlice({
   reducers: {
 
     Token_remove: (state, { payload }) => {
-      // localStorage.removeItem("token");
+      
       localStorage.clear();
       state.isToggle=false;
     },
@@ -145,10 +145,9 @@ export const AuthSlice2 = createSlice({
       })
       .addCase(user.fulfilled, (state, { payload }) => {
         state.status = "idle";
-        // localStorage.setItem("email",payload.data.email)
-        //   localStorage.setItem("first_school",payload.data.first_school)
+        
         state.users=payload.data
-        // console.log("Userrrrrrrr",state.users)
+        
           toast(payload.message);
 
       })

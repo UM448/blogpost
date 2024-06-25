@@ -3,8 +3,8 @@ import axiosInstance2 from "./helper";
 import axios from 'axios'
 
 
-import { toast } from "react-toastify";  // toast and its associated styles for displaying notifications.
-// import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";  
+
 const initialState = {
   listData: [{}],
   totalRecords: [{}],
@@ -20,12 +20,12 @@ const initialState = {
 
 };
 
-export const product = createAsyncThunk(  // Creates an asynchronous thunk action named register using createAsyncThunk. It sends a POST request to the "/user/signup" endpoint with the provided formData and returns the response data (resData).
+export const product = createAsyncThunk( 
   "/student/create",
 
   async (formData) => {
     try{
-    let res = await axios.post(`https://tureappservar.onrender.com/student/create`, formData); // axiosInstance for making HTTP requests.
+    let res = await axios.post(`https://tureappservar.onrender.com/student/create`, formData); 
 console.log("Response Data",res)
     let resData = res?.data;
     
@@ -33,11 +33,10 @@ console.log("Response Data",res)
 
     return resData;
   } catch(error){
-// return "Error Occured"
+
 console.log("error",error)
 
-// throw new Error(error.res?.data.message)
-// return error.response?.data?.error
+
 return error.response.data
 
   }
@@ -155,11 +154,11 @@ export const blogDetails = createAsyncThunk(
 
 
 
-// Slice create
+
 export const productSlice = createSlice({
   name: "product",
   initialState,
-  // create action function()
+ 
   reducers: {
     blogUpdated: (state, { payload }) => {
       
@@ -168,7 +167,7 @@ export const productSlice = createSlice({
     },
   },
 
-  // Promise 
+ 
   extraReducers: (builder) => {
     builder
 
@@ -179,7 +178,7 @@ export const productSlice = createSlice({
       .addCase(product.fulfilled, (state, action) => {
         state.status = "idle";
         
-        // if (action.payload?.status === 200) {
+        
           if (action.payload?.data?._id) {
           state.err=!state.err
           console.log("updated state",state.err)
@@ -196,16 +195,15 @@ export const productSlice = createSlice({
           action.payload?.error?.classes && toast(action.payload?.error?.classes?.message);
 
           toast(action.payload?.message);
-          // console.log("Fulfilled State2",action.payload)
+          
           
         }
-        // console.log("Fulfilled State")
+        
 
       })
       .addCase(product.rejected, (state, action) => {
         state.status = "idle";
-        // console.log(action.error)
-        // console.log(action.payload)
+        
 
         toast(action.error);
         
@@ -287,9 +285,7 @@ export const productSlice = createSlice({
         toast(payload.message);
       }
 
-      // if (payload.status === 200) {
-      //   state.listData = payload.data
-      // }
+      
 
     })
     .addCase(update.rejected, (state, action) => {
@@ -303,10 +299,10 @@ export const productSlice = createSlice({
     })
     .addCase(productDetails.fulfilled, (state, { payload }) => {
       state.status = "idle";
-      // if (payload.status === 200) {
+      
         state.det = payload;
         console.log("det",typeof(state.det.data))
-      // }
+      
     })
     .addCase(productDetails.rejected, (state, action) => {
       state.status = "idle";
@@ -325,9 +321,7 @@ export const productSlice = createSlice({
         toast(payload.message);
       }
 
-      // if (payload.status === 200) {
-      //   state.listData = payload.data
-      // }
+
 
     })
     .addCase(blogUpdate.rejected, (state, action) => {
